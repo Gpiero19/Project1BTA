@@ -32,9 +32,12 @@ class FileManager:
       # Implement a process that writes a list of dictionaries from list_of_dicts to the `json_file_path` file
 
   def add_to_json(self, data, json_file_path):
-    with open(json_file_path, "a") as f:
-      json.dump(data, f)
+    with open(json_file_path, "r") as f:
+      existing_data = json.load(f)
 
-      pass
-      # TODO:
-      # Implement a process that gets the dictionary in the data variable and adds it to the JSON `json_file_path`
+    if not isinstance(existing_data, list):
+      existing_data = []
+      existing_data.append(data)
+
+    with open(json_file_path, "w") as f:
+            json.dump(existing_data, f)

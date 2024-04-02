@@ -29,7 +29,7 @@ class Account:
             self.balance += amount
             history_message = HistoryMessages.deposit("success", amount, self.balance)
             self.write_to_history(history_message)
-            print(f"Withdrawal of {amount} successful. Remaining balance: {self.balance}'")
+            print(f"Deposit of {amount} successful. Total balance: {self.balance}'")
                 
         # TODO:
         # implement the deposit process with all necessary checks
